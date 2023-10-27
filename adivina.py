@@ -3,8 +3,6 @@ import os
 import time
 import random
 
-keepPlaying = True
-
 def game():
     
     os.system("cls")
@@ -45,10 +43,9 @@ def game():
                 "pajaro", "palabra", "pantalla", "panuelo", "parque", "paso", "pastel", "pelota", "perro", "pescado",
                 "piano", "playa", "plaza", "pueblo", "puerta", "puesto", "rio", "regalo", "reloj", "restaurante",
                 "ropa", "silla", "sol", "sombrero", "sueno", "taza", "tren", "trabajo", "universidad", "vino",
-                "yogur", "zapato", "arbol", "ultimo",
-                "aceituna", "agujero", "almohada", "almohadon", "ancla", "anecdota",
+                "yogur", "zapato", "arbol", "ultimo","aceituna", "agujero", "almohada", "almohadon", "ancla", "anecdota",
                 "anemona", "arcilla", "arcangel", "bambu", "banquito", "banquillo", "barquito", "barra", "baritono", "baston",
-                "batea", "batuta", "beba", "beldad", "bisabuelo", "bisagra", "boina", "bolita", "bota", "boton",
+                "batea", "batuta", "beba", "ano", "bisabuelo", "bisagra", "boina", "bolita", "bota", "boton",
                 "buhardilla", "buho", "cabrito", "cachorro", "cachucha", "cactus", "cafecito", "cafetera", "caja", "calabaza",
                 "calma", "campana", "canasta", "cancion", "candil", "caracol", "carita", "carpeta", "casita", "casona",
                 "cebo", "cebolla", "cigarrillo", "ciudadela", "cortina", "cuentagotas", "cuento", "cuerito", "cuero", "cuna",
@@ -119,25 +116,28 @@ def game():
     print("\nCantidad de intentos: "+str(len(palabras_ingresadas)))
     
     time.sleep(0.5)
-while keepPlaying:
-    game()
-    flag = None  # Inicializa flag como None
-    while flag not in (1, 2):  # Utiliza un conjunto de valores válidos
-        print("\nVolver a jugar?")
-        print("1. Si")
-        print("2. No")
-        respuesta = input("Respuesta:")
-        if respuesta.strip().isdigit():  # Verifica si la entrada contiene solo dígitos
-            flag = int(respuesta)
-            if flag == 1:
-                break
-            elif flag == 2:
-                keepPlaying = False
+
+def main():
+    keepPlaying = True
+    while keepPlaying:
+        game()
+        flag = None  # Inicializa flag como None
+        while flag not in (1, 2):  # Utiliza un conjunto de valores válidos
+            respuesta = input("\n¿Volver a jugar? (1. Si / 2. No): ")
+            if respuesta.strip().isdigit():  # Verifica si la entrada contiene solo dígitos
+                flag = int(respuesta)
+                if flag == 1:
+                    break
+                elif flag == 2:
+                    keepPlaying = False
+                else:
+                    os.system("cls")
+                    print("Opción no válida. Por favor, ingrese 1 o 2.")
+                    time.sleep(1)
             else:
                 os.system("cls")
-                print("Opción no válida. Por favor, ingrese 1 o 2.")
+                print("Entrada no válida. Por favor, ingrese 1 o 2.")
                 time.sleep(1)
-        else:
-            os.system("cls")
-            print("Entrada no válida. Por favor, ingrese 1 o 2.")
-            time.sleep(1)
+
+if __name__ == "__main__":
+    main()
