@@ -3,9 +3,13 @@ Aprendiendo python
 
 Jueguito de adivinar la palabra
 
-Librerias instaladas
-colorama : pip install colorama
+## Librerias
 
-Lista de palabras generada por el amigo gpt
+```sh
+pip install colorama
+```
 
-Para compilarlo pyinstaller adivina.py
+## Para compilarlo 
+```sh
+pyinstaller adivina.py
+```
